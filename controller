@@ -1,0 +1,37 @@
+using UnityEngine;
+using Valve.VR;
+
+public class Controller : MonoBehaviour
+{
+    private SteamVR_TrackedObject trackObj;//控制器
+
+    //取得控制器的哪個按鈕被壓下、放開、觸碰
+    private SteamVR_Controller.Device controller
+    {
+        get
+        {
+            return SteamVR_Controller.Input((int)trackObj.index);
+        }
+    }
+
+    //這個範例示範如何確認控制器的選單鈕是否被按下
+    private EVRButtonId button = EVRButtonId.k_EButton_ApplicationMenu;
+    private bool buttonPressed;
+
+    private void Start ()
+    {
+        trackObj = GetComponent<SteamVR_TrackedObject>();//取得控制器腳本物件
+    }
+    
+    private void Update ()
+    {
+        if(controller == null)
+        {
+            Debug.Log("控制器並沒有被初始化");
+            return;
+        }
+
+        buttonPressed = controller.GetPressDown(button);//取得控制器的選單按鈕是否有被按下
+        Debug.Log(buttonPressed);
+    }
+}
