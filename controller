@@ -1,3 +1,9 @@
+using this controller script 
+we can find the both controller
+first touch, first be the right hand!!!!!!!!!!!!!!
+
+每個新建立的script檔都是一個類別，並且他會繼承MonoBehaviour這個類別!!!!
+
 using UnityEngine;
 using Valve.VR;
 
